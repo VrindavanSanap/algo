@@ -2,6 +2,7 @@
 import numpy as np
 import re
 
+from game_strings import game_instructions,quit_msg, welcome_msg, move_outof_range_msg
 
 class TicTakToe:
     # 1 = X, -1 = Y
@@ -129,29 +130,37 @@ class TicTakToe:
         if self.state == -1:
             return win_msg(self.itos[-1])
 
+    @staticmethod
+    def get_player_move():
+        try:
+            inp = input(f"Player {ttt.whos_turn_str()}, your move: ")
+            inp = inp.strip()
+
+            if inp == "q":
+                print("Quiting!")
+                exit(0)
+            inp = re.sub(r'[^0-9\s]', '', inp)
+            inp = int(inp) - 1
+            if inp > 9:
+                print(move_outof_range_msg)
+                return False
+
+            row = inp // 3
+            col = inp % 3
+            return row, col
+        except Exception:
+            print(Exception)
+            return False
 
 def play_game(ttt):
-    welcome_msg = "Let's play Tic Tac Toe! \nVersion 1.0.0"
-    quit_msg = "Press q to quit anytime"
-    game_instructions = "When it is your turn, enter the number in the corresponding \nsquare on the board you want to place your token. For example, \nif you want to place an [X] in the top left corner, you would \ntype 1 on your turn"
     print(welcome_msg)
-    print(ttt)
     print(game_instructions)
     print(quit_msg)
+    print(ttt)
     while (not ttt.is_game_over()):
-        inp = input(f"Player {ttt.whos_turn_str()}, your move: ")
-        inp = inp.strip()
-        if inp == "q":
-            break
-        inp = re.sub(r'[^0-9\s]', '', inp)
-        inp = int(inp) - 1
-        row = inp // 3
-        col = inp % 3
-        if inp > 9:
-            move_outof_range_msg = "Your move is out of valid range(1-9)"
-            print(move_outof_range_msg)
-            continue
-        ttt.make_move(row, col)
+        if (move := TicTakToe.get_player_move()):
+            row, col = move
+            ttt.make_move(row, col)
         print(ttt)
     print(ttt.result_str())
 
