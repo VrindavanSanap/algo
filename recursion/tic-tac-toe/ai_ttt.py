@@ -11,11 +11,16 @@ def play_game(ttt):
     print(game_instructions)
     print(quit_msg)
     print(ttt)
-    while (not ttt.is_game_over()):
-        if (move := TicTacToe.get_player_move()):
+    while (True):
+        if (move := ttt.get_player_move()):
             row, col = move
             ttt.make_move(row, col)
-        print(ttt)
+            print(ttt)
+            for r, c in (ttt.all_possible_moves()):
+                
+                print(f"{ttt.row_col_to_n(r, c)}:{ttt.is_winning_move(r, c)}")
+        if( ttt.is_game_over()):
+            break
     print(ttt.result_str())
 
 

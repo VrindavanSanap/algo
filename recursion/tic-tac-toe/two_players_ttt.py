@@ -15,7 +15,7 @@ class TicTacToe:
         if self.is_valid_state():
             pass
         else:
-            self.state = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            self.grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
         self.itos = {1: "X", -1: "O"}
 
@@ -33,6 +33,7 @@ class TicTacToe:
         return True
 
     def update_state(self):
+        self.state = None
         if self.is_game_drawn():
             self.state = 0
         for row in self.grid:
@@ -130,12 +131,36 @@ class TicTacToe:
         if self.state == -1:
             return win_msg(self.itos[-1])
 
+    def all_possible_moves(self):
+        possible_moves = []
+        for i in range(1,10):
+            r, c = self.n_to_row_col(i)
+            if (self.grid[r][c] == 0):
+                possible_moves.append((r, c))
+        return possible_moves
+    
+    def is_winning_move(self,row,col):
+        if not self.grid[row][ col] == 0:
+            return False
+        self.make_move(row, col)
+        self.grid[row][ col]  = 0 
+        if(state := self.state):
+            if (state != 0):
+                self.update_state()
+                return True
+        self.update_state()
+        return False
+
     @staticmethod
     def n_to_row_col(n):
       n -= 1
       row = n // 3
       col = n % 3
       return row, col
+ 
+    @staticmethod
+    def row_col_to_n(row, col):
+      return row * 3 + col + 1
  
     @staticmethod
     def get_player_move():
