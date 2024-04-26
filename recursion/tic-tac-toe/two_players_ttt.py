@@ -4,7 +4,7 @@ import re
 
 from game_strings import game_instructions,quit_msg, welcome_msg, move_outof_range_msg
 
-class TicTakToe:
+class TicTacToe:
     # 1 = X, -1 = Y
     # Game state
 
@@ -131,6 +131,13 @@ class TicTakToe:
             return win_msg(self.itos[-1])
 
     @staticmethod
+    def n_to_row_col(n):
+      n -= 1
+      row = n // 3
+      col = n % 3
+      return row, col
+ 
+    @staticmethod
     def get_player_move():
         try:
             inp = input(f"Player {ttt.whos_turn_str()}, your move: ")
@@ -140,16 +147,16 @@ class TicTakToe:
                 print("Quiting!")
                 exit(0)
             inp = re.sub(r'[^0-9\s]', '', inp)
-            inp = int(inp) - 1
-            if inp > 9:
+            inp = int(inp)
+            if 1>inp > 9:
                 print(move_outof_range_msg)
                 return False
 
-            row = inp // 3
-            col = inp % 3
+            row, col = TicTacToe.n_to_row_col(inp)
             return row, col
-        except Exception:
-            print(Exception)
+
+        except Exception as e:
+            print(e)
             return False
 
 def play_game(ttt):
@@ -158,13 +165,13 @@ def play_game(ttt):
     print(quit_msg)
     print(ttt)
     while (not ttt.is_game_over()):
-        if (move := TicTakToe.get_player_move()):
+        if (move := TicTacToe.get_player_move()):
             row, col = move
             ttt.make_move(row, col)
         print(ttt)
     print(ttt.result_str())
 
 
-ttt = TicTakToe()
+ttt = TicTacToe()
 if __name__ == "__main__":
     play_game(ttt)
