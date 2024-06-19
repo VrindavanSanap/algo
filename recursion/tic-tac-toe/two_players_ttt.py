@@ -181,7 +181,7 @@ class TicTacToe:
             return row, col
 
         except Exception as e:
-            print(e)
+            print(f"Errror {e}")
             return False
 
 def play_game(ttt):
