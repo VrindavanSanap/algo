@@ -1,59 +1,60 @@
 class Node:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+  def __init__(self, value):
+    self.value = value
+    self.left = None
+    self.right = None
 
-    def add_node(self, n):
-        if (n.value < self.value):
-            if (self.left == None):
-                self.left = n
-            else:
-                self.left.add_node(n)
+  def add_node(self, n):
+    if n.value < self.value:
+      if self.left == None:
+        self.left = n
+      else:
+        self.left.add_node(n)
 
-        else:
-            if (self.right == None):
-                self.right = n
-            else:
-                self.right.add_node(n)
-    def visit(self):
-        if (self.left):
-            self.left.visit()
-        print(self.value)
-        if (self.right):
-            self.right.visit()
+    else:
+      if self.right == None:
+        self.right = n
+      else:
+        self.right.add_node(n)
 
-    def search(self, value):
-        if (self.value == value):
-            return self
+  def visit(self):
+    if self.left:
+      self.left.visit()
+    print(self.value)
+    if self.right:
+      self.right.visit()
 
-        elif (value < self.value and self.left):
-            return self.left.search(value)
+  def search(self, value):
+    if self.value == value:
+      return self
 
-        elif (value > self.value and self.right):
-            return self.right.search(value)
+    elif value < self.value and self.left:
+      return self.left.search(value)
 
+    elif value > self.value and self.right:
+      return self.right.search(value)
 
-    def __repr__(self):
-        return f"value={self.value}, left={self.left.value if self.left else None}, right={self.right.value if self.right else None}"
+  def __repr__(self):
+    return f"value={self.value}, left={self.left.value if self.left else None}, right={self.right.value if self.right else None}"
+
 
 class Tree:
-    def __init__(self):
-        self.root = None
+  def __init__(self):
+    self.root = None
 
-    def add_value(self, value):
-        if not (self.root):
-            self.root = Node(value)
-        else:
-            self.root.add_node(Node(value))
+  def add_value(self, value):
+    if not (self.root):
+      self.root = Node(value)
+    else:
+      self.root.add_node(Node(value))
 
-    def traverse(self):
-        self.root.visit()
+  def traverse(self):
+    self.root.visit()
 
-    def search(self, value):
-        found = self.root.search(value)
+  def search(self, value):
+    found = self.root.search(value)
 
-        return found
+    return found
 
 
 tree = Tree()

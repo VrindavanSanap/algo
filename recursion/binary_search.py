@@ -12,8 +12,10 @@ def binary_search(arr, item):
       return mid
     if guess > item:
       high = mid - 1
-    else: 
+    else:
       low = mid + 1
   return -1
+
+
 print(binary_search(my_list, 3))
 print(binary_search(my_list, 11))

@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/vrindavan/Code/algo/leetcode/strings/sort_the_sent'
+relocations:     []
+...

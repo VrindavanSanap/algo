@@ -11,8 +11,10 @@ graph["peggy"] = []
 graph["thom"] = []
 graph["jonny"] = []
 
+
 def person_is_seller(name):
-  return name[-1] == "m" 
+  return name[-1] == "m"
+
 
 def bfs(name):
   search_queue = deque()
@@ -27,6 +29,7 @@ def bfs(name):
       else:
         search_queue += graph[person]
         searched.append(person)
-  return 
+  return
+
 
 print(bfs("you"))
