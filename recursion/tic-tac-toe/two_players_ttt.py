@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import numpy as np
 import re
 
 from game_strings import game_instructions, quit_msg, welcome_msg, move_outof_range_msg

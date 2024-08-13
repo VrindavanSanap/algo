@@ -22,7 +22,7 @@ def bfs(name):
   searched = []
   while search_queue:
     person = search_queue.popleft()
-    if not person is searched:
+    if person is not searched:
       if person_is_seller(person):
         print(f"{person} is a seller")
         return True

@@ -30,7 +30,7 @@ def bfs(y, x):
     y, x = queue.popleft()
     for dy, dx in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
       yi, xi = y + dy, x + dx
-      if not ([yi, xi] in visited):
+      if [yi, xi] not in visited:
         if not (yi >= r or xi >= c or yi < 0 or xi < 0):
           if grid[yi][xi] == "B":
             print("Found! ")

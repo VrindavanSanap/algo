@@ -22,7 +22,7 @@ def explore(y, x):
     y, x = queue.popleft()
     for dy, dx in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
       yi, xi = y + dy, x + dx
-      if not ([yi, xi] in visited):
+      if [yi, xi] not in visited:
         if not (yi >= r or xi >= c or yi < 0 or xi < 0):
           if grid[yi][xi] == ".":
             queue.append([yi, xi])
@@ -31,7 +31,7 @@ def explore(y, x):
 
 for yi in range(r):
   for xi in range(c):
-    if not [yi, xi] in visited:
+    if [yi, xi] not in visited:
       if grid[yi][xi] == ".":
         n_rooms += 1
         explore(yi, xi)

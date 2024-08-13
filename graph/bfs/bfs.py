@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from collections import deque
 
 graph = {}
 graph["you"] = ["alice", "bob", "claire"]
