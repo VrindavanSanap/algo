@@ -14,7 +14,6 @@ char *interpret(char *command) {
       printf("al");
       i += 2;
     } else {
-
       i += 1;
     }
   }
