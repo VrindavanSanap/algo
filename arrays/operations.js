@@ -5,7 +5,6 @@ var finalValueAfterOperations = function(operations) {
       x += 1;
     }
     if (operations[i][0] == '-' || operations[i][2] == "-"){
-
       x -= 1;
     }
   }   
