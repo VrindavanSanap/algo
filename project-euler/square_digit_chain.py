@@ -1,5 +1,5 @@
-from tqdm import tqdm
 from numba import njit
+from tqdm import tqdm
 
 
 @njit

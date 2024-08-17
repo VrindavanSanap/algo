@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import numpy as np
-
 from check_grid import check_grid
 
 grid = [
