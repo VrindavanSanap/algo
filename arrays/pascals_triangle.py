@@ -8,6 +8,7 @@ for i in range(-1,len(a)):
 
 from typing import List
 
+
 def pascals_triangle(n: int) -> List[List[int]]:
   rows: List[List[int]] = [[1]]
   for i in range(1, n):
@@ -18,6 +19,7 @@ def pascals_triangle(n: int) -> List[List[int]]:
     rows.append(row)
 
   return rows
+
 
 triangle: List[List[int]] = pascals_triangle(5)
 print(triangle)
