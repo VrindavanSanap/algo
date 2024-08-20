@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main() {
-  char s[] = "You can’t just follow rules and expect to make a difference. "
+  char s[] = "You cant just follow rules and expect to make a difference. "
              "Innovation comes from breaking them";
   char *token = strtok(s, " ");
   int i = 0;

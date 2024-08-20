@@ -1,41 +1,31 @@
+/*
+        Takes O(n^2) time
+*/
+#include "utils.h"
 #include <stdio.h>
 
-void print_arr(int arr[], int size){
-  printf("[");
-  for (int i = 0; i< size;i++){
-    printf("%d, ", arr[i]);
-  }
-  printf("\b\b] \n");
-}
+void selection_sort(int arr[], int len) {
 
-void swap(int arr[], int index_a, int index_b){
-  int temp = arr[index_a];
-  arr[index_a] = arr[index_b];
-  arr[index_b] = temp;
-}
-
-
-void selection_sort(int arr[], int size){
-  // sorts an array of ints in place
-  for (int i = 0; i < size; i++){
-    // find the largest number in arr[i:len] 
-    // put it in arr[i]
-    int largest_int = 0;
-    int largest_int_index = 0;
-    for (int j = i; j < size; j++){
-      if (largest_int < arr[j]){
-        largest_int = arr[j];
-        largest_int_index = j;
+  for (int j = 0; j < len; j++) {
+    // find smallest element in arr[j:len] and put it in
+    // arr[j]
+    int smallest_int = arr[j];
+    int smallest_ind = j;
+    for (int i = j + 1; i < len - 1; i++) {
+      if (arr[i] < smallest_int) {
+        smallest_int = arr[i];
+        smallest_ind = i;
       }
     }
-    swap(arr,i, largest_int_index);
-    print_arr(arr, 10);
+    swap(arr, j, smallest_ind);
+    print_arr(arr, len);
   }
 }
+int main() {
+  int my_arr[] = {5, 2, 4, 6, 1, 3};
+  int my_arr2[] = {31, 41, 59, 26, 41, 58};
+  int arr_len = 6;
 
-int main(){
-  int arr[10] = {83, 47, 44, 79, 84, 35, 99, 9, 39, 19 };
-  selection_sort(arr, 10);
-  print_arr(arr, 10);
-  return 0;
+  selection_sort(my_arr, arr_len);
+  selection_sort(my_arr2, arr_len);
 }

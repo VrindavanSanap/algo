@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-
+#!/ usr / bin / python3
 
 def insertion_sort(arr):
   print(arr)
