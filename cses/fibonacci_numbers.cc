@@ -2,15 +2,15 @@
 
 using namespace std;
 
-long long nth_fib(int n){
-  if (n == 0 || n == 1){
+long long nth_fib(int n) {
+  if (n == 0 || n == 1) {
     return n;
   }
   long long res = 1;
-  long long prev_res  = 0;
+  long long prev_res = 0;
   long long temp;
 
-  for (int i = 0; i < n - 1;i ++){
+  for (int i = 0; i < n - 1; i++) {
     temp = res;
     res = res + prev_res;
     prev_res = temp;
@@ -18,14 +18,11 @@ long long nth_fib(int n){
   return res;
 }
 
-int main(){ 
+int main() {
   int n;
   cin >> n;
   long long m;
-      int mod = 1e9 + 7;
+  int mod = 1e9 + 7;
 
-  cout << nth_fib(n)%m;
-
-
-
+  cout << nth_fib(n) % m;
 }
