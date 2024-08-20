@@ -7,7 +7,7 @@ for i in range(-1,len(a)):
 """
 
 
-def pascals_triangle(n ):
+def pascals_triangle(n):
   rows = [[1]]
   for i in range(1, n):
     row = []
