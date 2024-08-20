@@ -1,8 +1,10 @@
-arr = [11, 2, 123, 12, 11134, 3, 234, 26, 74534]
+from typing import List
+
+arr: List[int] = [11, 2, 123, 12, 11134, 3, 234, 26, 74534]
 
 
-def merge(left, right):
-  result = []
+def merge(left: List[int], right: List[int]) -> List[int]:
+  result: List[int] = []
   left_index, right_index = 0, 0
   while left_index < len(left) and right_index < len(right):
     if left[left_index] < right[right_index]:
@@ -16,12 +18,12 @@ def merge(left, right):
   return result
 
 
-def merge_sort(arr):
+def merge_sort(arr: List[int]) -> List[int]:
   if len(arr) < 2:
     return arr
-  mid = len(arr) // 2
-  left_half = merge_sort(arr[:mid])
-  right_half = merge_sort(arr[mid:])
+  mid: int = len(arr) // 2
+  left_half: List[int] = merge_sort(arr[:mid])
+  right_half: List[int] = merge_sort(arr[mid:])
   return merge(left_half, right_half)
 
 
