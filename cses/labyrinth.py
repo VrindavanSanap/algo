@@ -6,6 +6,7 @@ w = l1[1]
 """
 
 from collections import deque
+
 import numpy as np
 
 h = 5

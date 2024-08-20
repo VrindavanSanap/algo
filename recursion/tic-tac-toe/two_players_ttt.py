@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import re
 
-from game_strings import game_instructions, quit_msg, welcome_msg, move_outof_range_msg
+from game_strings import (game_instructions, move_outof_range_msg, quit_msg,
+                          welcome_msg)
 
 
 class TicTacToe:

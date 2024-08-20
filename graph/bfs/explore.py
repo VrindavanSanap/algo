@@ -1,5 +1,6 @@
-import numpy as np
 from collections import deque
+
+import numpy as np
 
 r = 5
 c = 8

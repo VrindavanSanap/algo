@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-from two_players_ttt import TicTacToe
 from game_strings import game_instructions, quit_msg, welcome_msg
+from two_players_ttt import TicTacToe
 
 
 def play_game(ttt):
