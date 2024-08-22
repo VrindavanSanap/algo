@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 no_soln_msg = "NO SOLUTION"
 def palindrome_reorder(s):
 
@@ -43,5 +44,4 @@ def palindrome_reorder(s):
     return res + middle_term + ''.join(reversed(res))
 
 print(palindrome_reorder(input()))
-
 
