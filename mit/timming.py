@@ -6,7 +6,7 @@ def bob_sum(n):
   sum_ = 0 
   for i in range(n):
     sum_ += i
-    return sum_
+  return sum_
 
 def bob_square(n):
   square = 0 
@@ -19,7 +19,7 @@ def time_wrapper(f, L):
   print("Timing", f.__name__) 
   for i in L:
     t = time.time()
-    f(i) 
+    print(f(i))
     dt = time.time() - t 
     print(f"{f.__name__} ({i} took {dt} sec)")
 L_N = [1] 
