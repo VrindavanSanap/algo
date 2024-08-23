@@ -25,7 +25,7 @@ def time_wrapper(f, L):
   for i in L:
     t = time.time()
     print(f(i))
-    dt = time.time() - t 
+    dt = time.time() - t
     f(i)
     dt = time.time() - t
     print(f"{f.__name__} ({i} took {dt} sec)")
